@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Dr. Juan",
+      "email": "juan@medico.com",
+      "password": "fabdadtxdx123",
+      "role": "professional"
+    },
+    {
+      "id": 3,
+      "name": "Administrador",
+      "email": "admin@admin.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 4,
+      "name": "Dra. Ana",
+      "email": "ana@medico.com",
+      "password": "fabdadtxdx123",
+      "role": "professional"
+    },
+    {
+      "id": 2,
+      "name": "Paciente Demo",
+      "email": "paciente@demo.com",
+      "password": "fabdadtxdx123",
+      "role": "patient"
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1748445450715,
+      "patientId": 2,
+      "professionalId": "1",
+      "date": "2025-05-16",
+      "time": "17:22",
+      "status": "confirmado"
+    },
+    {
+      "id": 1748446356080,
+      "patientId": 2,
+      "professionalId": "4",
+      "date": "2025-05-14",
+      "time": "16:32",
+      "status": "pendiente"
+    }
+  ],
+  "availability": [
+    {
+      "professionalId": 1,
+      "slots": [
+        {
+          "date": "2024-06-10",
+          "time": "09:00"
+        },
+        {
+          "date": "2024-06-10",
+          "time": "10:00"
+        }
+      ]
+    }
+  ]
+}
