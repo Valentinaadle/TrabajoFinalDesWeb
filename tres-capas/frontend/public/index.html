@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Reservas - 3 Capas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <div id="loginSection">
+      <h2>Iniciar sesión</h2>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+      </form>
+      <div id="loginMsg" class="mt-2 text-danger"></div>
+    </div>
+
+    <div id="patientSection" style="display:none;">
+      <h2>Bienvenido, <span id="patientName"></span> (Paciente)</h2>
+      <h4>Solicitar turno</h4>
+      <form id="appointmentForm">
+        <div class="mb-3">
+          <label for="professionalSelect" class="form-label">Profesional</label>
+          <select class="form-control" id="professionalSelect" required></select>
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Fecha</label>
+          <input type="date" class="form-control" id="date" required>
+        </div>
+        <div class="mb-3">
+          <label for="time" class="form-label">Hora</label>
+          <input type="time" class="form-control" id="time" required>
+        </div>
+        <button type="submit" class="btn btn-success">Agendar turno</button>
+      </form>
+      <h4 class="mt-4">Mis turnos</h4>
+      <ul id="myAppointments"></ul>
+      <button class="btn btn-secondary mt-3" id="logoutBtn1">Cerrar sesión</button>
+    </div>
+
+    <div id="professionalSection" style="display:none;">
+      <h2>Bienvenido, <span id="professionalName"></span> (Profesional)</h2>
+      <h4>Turnos recibidos</h4>
+      <ul id="professionalAppointments"></ul>
+      <button class="btn btn-secondary mt-3" id="logoutBtn2">Cerrar sesión</button>
+    </div>
+
+    <div id="adminSection" style="display:none;">
+      <h2>Bienvenido, <span id="adminName"></span> (Administrador)</h2>
+      <h4>Todos los turnos</h4>
+      <ul id="allAppointments"></ul>
+      <button class="btn btn-secondary mt-3" id="logoutBtn3">Cerrar sesión</button>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html> 

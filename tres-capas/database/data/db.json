@@ -1,39 +1,57 @@
 {
-  "pacientes": [
+  "usuarios": [
     {
       "id": 1,
       "nombre": "Juan Pérez",
       "email": "juan@email.com",
-      "dni": "12345678"
-    }
-  ],
-  "profesionales": [
+      "password": "paciente1!",
+      "rol": "paciente"
+    },
     {
-      "id": 1,
+      "id": 2,
       "nombre": "Dra. María García",
-      "especialidad": "Cardiología",
       "email": "maria@email.com",
+      "password": "prof1!",
+      "rol": "profesional",
+      "especialidad": "Cardiología",
       "horarios": "Lunes a Viernes 9:00 - 17:00"
+    },
+    {
+      "id": 3,
+      "nombre": "Dr. Pablo Mendez",
+      "email": "pablo@email.com",
+      "password": "prof2!",
+      "rol": "profesional"
+    },
+    {
+      "id": 4,
+      "nombre": "Valentina Adle",
+      "email": "valentina.adle@email.com",
+      "password": "admin1!",
+      "rol": "admin"
+    },
+    {
+      "id": 5,
+      "nombre": "Victoria Lizárraga",
+      "email": "victoria.lizarraga@email.com",
+      "password": "admin2!",
+      "rol": "admin"
     }
   ],
   "turnos": [
     {
-      "id": 1,
-      "pacienteId": 1,
-      "profesionalId": 1,
-      "fecha": "2025-06-01T15:00:00",
-      "estado": "PENDIENTE",
-      "consultorio": "A1"
-    }
-  ],
-  "usuarios": [
+      "id": 2,
+      "profesionalId": "3",
+      "fecha": "2025-06-13T17:08",
+      "consultorio": "A1",
+      "estado": "PENDIENTE"
+    },
     {
-      "id": 1,
-      "email": "juan@email.com",
-      "password": "123456",
-      "nombre": "Juan Pérez",
-      "rol": "paciente",
-      "pacienteId": 1
+      "id": 3,
+      "profesionalId": "2",
+      "fecha": "2025-06-12T17:08",
+      "consultorio": "A1",
+      "estado": "PENDIENTE"
     }
   ]
-} 
+}

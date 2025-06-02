@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const fs = require('fs').promises;
 
 const app = express();
 
@@ -9,17 +8,24 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Servir archivos estáticos del frontend simple
+app.use(express.static(path.join(__dirname, '../../frontend/public')));
+
+// Rutas API
+const turnoRoutes = require('./routes/turnoRoutes');
+const profesionalRoutes = require('./routes/profesionalRoutes');
+
+app.use('/api/turnos', turnoRoutes);
+app.use('/api/profesionales', profesionalRoutes);
+
 // Ruta para autenticación
 app.post('/api/auth/login', async (req, res) => {
     try {
         const { email, password } = req.body;
-        const dbPath = path.join(__dirname, '../../database/data/db.json');
-        const data = JSON.parse(await fs.readFile(dbPath, 'utf8'));
-        
-        const usuario = data.usuarios.find(u => u.email === email && u.password === password);
-        
+        const dbService = require('./services/dbService');
+        const usuarios = await dbService.getUsuarios();
+        const usuario = usuarios.find(u => u.email === email && u.password === password);
         if (usuario) {
-            // En un sistema real, aquí generaríamos un JWT
             res.json({
                 user: {
                     id: usuario.id,
@@ -37,12 +43,12 @@ app.post('/api/auth/login', async (req, res) => {
     }
 });
 
-// Ruta para obtener datos del JSON
+// Ruta para obtener todos los datos (usuarios y turnos)
 app.get('/api/data', async (req, res) => {
     try {
-        const dbPath = path.join(__dirname, '../../database/data/db.json');
-        const data = await fs.readFile(dbPath, 'utf8');
-        res.json(JSON.parse(data));
+        const dbService = require('./services/dbService');
+        const data = await dbService.readData();
+        res.json(data);
     } catch (error) {
         res.status(500).json({ error: 'Error al leer los datos' });
     }
@@ -64,7 +70,8 @@ app.get('/api/profesionales', async (req, res) => {
     try {
         const dbPath = path.join(__dirname, '../../database/data/db.json');
         const data = JSON.parse(await fs.readFile(dbPath, 'utf8'));
-        res.json(data.profesionales);
+        const profesionales = data.usuarios.filter(u => u.rol === 'profesional');
+        res.json(profesionales);
     } catch (error) {
         res.status(500).json({ error: 'Error al obtener los profesionales' });
     }
@@ -110,8 +117,19 @@ app.delete('/api/turnos/:id', async (req, res) => {
     }
 });
 
+// Redirigir cualquier otra ruta al index.html del frontend
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../frontend/public/index.html'));
+});
+
+// Manejo de errores
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Error en el servidor' });
+});
+
 // Puerto y inicio del servidor
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 }); 
