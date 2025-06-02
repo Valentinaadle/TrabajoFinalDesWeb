@@ -1,0 +1,271 @@
+/* Estilos para las tarjetas de turno */
+.turno-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.turno-card:hover {
+    transform: translateY(-2px);
+}
+
+.turno-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.turno-estado {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.turno-estado.pendiente {
+    background-color: #e6a23c;
+    color: white;
+}
+
+.turno-estado.confirmado {
+    background-color: #67c23a;
+    color: white;
+}
+
+.turno-estado.cancelado {
+    background-color: #f56c6c;
+    color: white;
+}
+
+.turno-body {
+    margin-bottom: 1rem;
+}
+
+.turno-body p {
+    margin: 0.5rem 0;
+}
+
+.turno-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Estilos para la grid de profesionales */
+.profesionales-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.profesional-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.profesional-card:hover {
+    transform: translateY(-2px);
+}
+
+.profesional-imagen {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+}
+
+.profesional-info h3 {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+.profesional-especialidad {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para mensajes */
+.mensaje {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    color: white;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+.mensaje.success {
+    background-color: var(--success-color);
+}
+
+.mensaje.error {
+    background-color: var(--error-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para el formulario de nuevo turno */
+.nuevo-turno-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row.full {
+    grid-template-columns: 1fr;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .turno-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .turno-actions {
+        flex-direction: column;
+    }
+
+    .mensaje {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        text-align: center;
+    }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formularios */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Mensajes de error */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+/* Cards */
+.turno-card,
+.profesional-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.turno-card h3,
+.profesional-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Navegación */
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+.nav-link:hover {
+    color: #007bff;
+} 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reservas para Profesionales</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Sistema de Reservas</h1>
+            <div class="nav-links">
+                <a href="#" class="nav-link" data-page="home">Inicio</a>
+                <a href="#" class="nav-link" data-page="turnos">Mis Turnos</a>
+                <a href="#" class="nav-link" data-page="profesionales">Profesionales</a>
+                <a href="#" id="btnLogin" class="nav-link">Iniciar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Página de inicio -->
+        <section id="home" class="page active">
+            <h2>Bienvenido al Sistema de Reservas</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Reserva tu Turno</h3>
+                    <p>Encuentra el profesional ideal y agenda tu cita de manera fácil y rápida.</p>
+                    <button class="btn primary" data-page="turnos">Reservar Ahora</button>
+                </div>
+                <div class="feature-card">
+                    <h3>Gestiona tus Citas</h3>
+                    <p>Visualiza, modifica o cancela tus turnos cuando lo necesites.</p>
+                    <button class="btn secondary" data-page="turnos">Ver Mis Turnos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de turnos -->
+        <section id="turnos" class="page">
+            <h2>Mis Turnos</h2>
+            <div class="turnos-container">
+                <div class="turnos-list" id="listaTurnos">
+                    <!-- Los turnos se cargarán dinámicamente aquí -->
+                </div>
+                <button class="btn primary" id="btnNuevoTurno">Nuevo Turno</button>
+            </div>
+        </section>
+
+        <!-- Página de profesionales -->
+        <section id="profesionales" class="page">
+            <h2>Nuestros Profesionales</h2>
+            <div class="profesionales-grid" id="listaProfesionales">
+                <!-- Los profesionales se cargarán dinámicamente aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de inicio de sesión -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn primary">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cargar scripts en orden correcto -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/turnos.js"></script>
+    <script src="js/profesionales.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
