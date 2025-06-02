@@ -41,6 +41,7 @@
   "turnos": [
     {
       "id": 2,
+      "pacienteId": 1,
       "profesionalId": "3",
       "fecha": "2025-06-13T17:08",
       "consultorio": "A1",
@@ -48,6 +49,7 @@
     },
     {
       "id": 3,
+      "pacienteId": 1,
       "profesionalId": "2",
       "fecha": "2025-06-12T17:08",
       "consultorio": "A1",

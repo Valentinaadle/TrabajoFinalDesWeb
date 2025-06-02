@@ -132,7 +132,7 @@ tres-capas/
    ```
 2. **Iniciar el backend:**
    ```bash
-   node src/index.js
+   npm start
    ```
 3. **Abrir el sistema:**
    - Accede a `http://localhost:3001` en tu navegador.

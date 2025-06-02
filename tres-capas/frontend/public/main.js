@@ -74,15 +74,21 @@ document.addEventListener('DOMContentLoaded', () => {
         loadMyAppointments();
     };
     async function loadMyAppointments() {
-        const res = await fetch(`${API_URL}/turnos`);
-        const turnos = await res.json();
-        const misTurnos = turnos.filter(t => t.pacienteId == currentUser.pacienteId);
-        myAppointments.innerHTML = misTurnos.map(a =>
-            `<li>
-                ${a.fecha} con profesional #${a.profesionalId} - Estado: ${a.estado}
+        // Obtengo turnos y profesionales
+        const [turnosRes, profesionalesRes] = await Promise.all([
+            fetch(`${API_URL}/turnos`),
+            fetch(`${API_URL}/profesionales`)
+        ]);
+        const turnos = await turnosRes.json();
+        const profesionales = await profesionalesRes.json();
+        const misTurnos = turnos.filter(t => t.pacienteId == currentUser.id);
+        myAppointments.innerHTML = misTurnos.map(a => {
+            const profesional = profesionales.find(p => p.id == a.profesionalId || p.id == Number(a.profesionalId));
+            return `<li>
+                ${a.fecha} con profesional ${profesional ? profesional.nombre : '#' + a.profesionalId} - Estado: ${a.estado}
                 ${(a.estado === 'PENDIENTE' || a.estado === 'CONFIRMADO') ? `<button class='btn btn-sm btn-danger' onclick='window.cancelarTurno(${a.id})'>Cancelar</button>` : ''}
-            </li>`
-        ).join('');
+            </li>`;
+        }).join('');
     }
     window.cancelarTurno = async (id) => {
         await fetch(`${API_URL}/turnos/${id}`, { method: 'DELETE' });
@@ -149,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const usuarios = data.usuarios || [];
         const profesionales = await profesionalesRes.json();
         allAppointments.innerHTML = turnos.map(a => {
-            const paciente = usuarios.find(u => u.pacienteId == a.pacienteId);
+            const paciente = usuarios.find(u => u.id == a.pacienteId);
             const profesional = profesionales.find(p => p.id == a.profesionalId);
             return `<li>
                 ${a.fecha} - Paciente: ${paciente ? paciente.nombre : 'Desconocido'} - Profesional: ${profesional ? profesional.nombre : 'Desconocido'} - Estado: ${a.estado}
