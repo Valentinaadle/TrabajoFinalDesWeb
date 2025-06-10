@@ -1,0 +1,140 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">
+    Estrategia de Branching - GitLab Flow Adaptado
+  </text>
+  
+  <!-- Branch Labels -->
+  <text x="50" y="120" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e74c3c">main</text>
+  <text x="50" y="140" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">Código estable para producción</text>
+  
+  <text x="50" y="220" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f39c12">testing</text>
+  <text x="50" y="240" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">Pruebas automatizadas y validación</text>
+  
+  <text x="50" y="320" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#27ae60">dev</text>
+  <text x="50" y="350" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">Desarrollo activo y nuevas features</text>
+  
+  <!-- Main Branch Line -->
+  <line x1="150" y1="115" x2="800" y2="115" stroke="#e74c3c" stroke-width="4"/>
+  
+  <!-- Testing Branch Line -->
+  <line x1="150" y1="215" x2="800" y2="215" stroke="#f39c12" stroke-width="4"/>
+  
+  <!-- Dev Branch Line -->
+  <line x1="150" y1="315" x2="800" y2="315" stroke="#27ae60" stroke-width="4"/>
+  
+  <!-- Commits on dev branch -->
+  <circle cx="200" cy="315" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="280" cy="315" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="360" cy="315" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="440" cy="315" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="520" cy="315" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="600" cy="315" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="680" cy="315" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  
+  <!-- Commits on testing branch -->
+  <circle cx="360" cy="215" r="8" fill="#f1c40f" stroke="#f39c12" stroke-width="2"/>
+  <circle cx="520" cy="215" r="8" fill="#f1c40f" stroke="#f39c12" stroke-width="2"/>
+  <circle cx="680" cy="215" r="8" fill="#f1c40f" stroke="#f39c12" stroke-width="2"/>
+  
+  <!-- Commits on main branch -->
+  <circle cx="440" cy="115" r="8" fill="#e67e22" stroke="#e74c3c" stroke-width="2"/>
+  <circle cx="600" cy="115" r="8" fill="#e67e22" stroke="#e74c3c" stroke-width="2"/>
+  
+  <!-- Merge lines dev -> testing -->
+  <path d="M 360 307 Q 360 261 360 223" stroke="#34495e" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  <path d="M 520 307 Q 520 261 520 223" stroke="#34495e" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  <path d="M 680 307 Q 680 261 680 223" stroke="#34495e" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  
+  <!-- Merge lines testing -> main -->
+  <path d="M 440 207 Q 440 161 440 123" stroke="#34495e" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  <path d="M 600 207 Q 600 161 600 123" stroke="#34495e" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  
+  <!-- Version Tags -->
+  <g>
+    <rect x="420" y="80" width="40" height="20" fill="#3498db" rx="3"/>
+    <text x="440" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">v1.0</text>
+  </g>
+  
+  <g>
+    <rect x="580" y="80" width="40" height="20" fill="#3498db" rx="3"/>
+    <text x="600" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">v1.1</text>
+  </g>
+  
+  <!-- CI/CD Process Boxes -->
+  <!-- Dev CI -->
+  <rect x="180" y="380" width="120" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+  <text x="240" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">CI en Dev</text>
+  <text x="240" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• ESLint</text>
+  <text x="240" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• Jest Tests</text>
+  <text x="240" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• Build Check</text>
+  
+  <!-- Testing CI -->
+  <rect x="340" y="250" width="120" height="60" fill="#fff3cd" stroke="#ffeaa7" stroke-width="2" rx="5"/>
+  <text x="400" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">Deploy Testing</text>
+  <text x="400" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• Deploy Render</text>
+  <text x="400" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• Integration Tests</text>
+  <text x="400" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• E2E Tests</text>
+  
+  <!-- Production CI -->
+  <rect x="500" y="150" width="120" height="60" fill="#d1ecf1" stroke="#bee5eb" stroke-width="2" rx="5"/>
+  <text x="560" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">Deploy Prod</text>
+  <text x="560" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• Manual Approval</text>
+  <text x="560" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• Deploy Railway</text>
+  <text x="560" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">• Health Check</text>
+  
+  <!-- Commit Examples -->
+  <text x="200" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">feat(api):</text>
+  <text x="200" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">POST /appointments</text>
+  <text x="280" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">fix(frontend):</text>
+  <text x="280" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">menu responsive</text>
+  <text x="440" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">refactor(db):</text>
+  <text x="440" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">optimize queries</text>
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">feat(frontend):</text>
+  <text x="600" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">calendar view</text>
+  
+  <!-- Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34495e"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <rect x="650" y="400" width="200" height="180" fill="white" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+  <text x="750" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Leyenda</text>
+  
+  <circle cx="670" cy="440" r="6" fill="#2ecc71"/>
+  <text x="685" y="445" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Commit en dev</text>
+  
+  <circle cx="670" cy="460" r="6" fill="#f1c40f"/>
+  <text x="685" y="465" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Merge a testing</text>
+  
+  <circle cx="670" cy="480" r="6" fill="#e67e22"/>
+  <text x="685" y="485" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Release a main</text>
+  
+  <line x1="670" y1="500" x2="690" y2="500" stroke="#34495e" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="695" y="505" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Merge/Deploy</text>
+  
+  <rect x="670" y="515" width="15" height="10" fill="#3498db"/>
+  <text x="690" y="524" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Version Tag</text>
+  
+  <rect x="670" y="535" width="15" height="10" fill="#ecf0f1" stroke="#bdc3c7"/>
+  <text x="690" y="544" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">CI/CD Process</text>
+  
+  <!-- Workflow Description -->
+  <text x="50" y="470" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Flujo de Trabajo:</text>
+  <text x="50" y="490" font-family="Arial, sans-serif" font-size="11" fill="#34495e">1. Desarrollo activo en rama dev con commits frecuentes</text>
+  <text x="50" y="505" font-family="Arial, sans-serif" font-size="11" fill="#34495e">2. Merge a testing activa despliegue automático en Render</text>
+  <text x="50" y="520" font-family="Arial, sans-serif" font-size="11" fill="#34495e">3. Aprobación manual para despliegue a producción en Railway</text>
+  <text x="50" y="535" font-family="Arial, sans-serif" font-size="11" fill="#34495e">4. Cada release en main se etiqueta con número de versión</text>
+  
+  <!-- Architecture Integration -->
+  <text x="50" y="560" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Integración con Arquitectura:</text>
+  <text x="50" y="580" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">feat(frontend): Capa de presentación</text>
+  <text x="250" y="580" font-family="Arial, sans-serif" font-size="10" fill="#3498db">feat(api): Capa de lógica</text>
+  <text x="400" y="580" font-family="Arial, sans-serif" font-size="10" fill="#e67e22">refactor(db): Capa de datos</text>
+</svg>
